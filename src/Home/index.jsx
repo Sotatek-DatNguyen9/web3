@@ -127,8 +127,6 @@ const Home = () => {
         },
       ];
       const multiResults = await multicallContract.aggregate(callDatas);
-      console.log(multiResults)
-      return ;
       let decodedResults = [];
       if (multiResults) {
         const _multiResults = multiResults.returnData;
