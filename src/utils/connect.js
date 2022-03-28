@@ -32,3 +32,5 @@ export const CHAIN_LIST = {
   4: "Rinkeby",
   5: "Goerli",
 };
+export const REACT_APP_GRAPHQL_URI =
+  "https://api.thegraph.com/subgraphs/name/sotatek-datnguyen9/web3ver2";
