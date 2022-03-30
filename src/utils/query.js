@@ -4,25 +4,24 @@ import { queryGraph } from "./connectGraph";
 
 export const useQueryHistory = (orderBy, orderDirection) => {
   const { account } = useWeb3React();
-  const orderByDefault = orderBy ? orderBy : "transactionTime";
+  const orderByDefault = orderBy ? orderBy : "time";
   const directionDefault = orderDirection ? orderDirection : "desc";
 
   const queryHistory =
     Boolean(account) &&
     `{
-        historyEntities(where: {user: "${account}"}, orderBy: ${orderByDefault}, orderDirection: ${directionDefault}) {
-            id
-            user
-            eventName
-            amount
-            transactionTime
+        historyEntities(where: {address: "${account}"}, orderBy: ${orderByDefault}, orderDirection: ${directionDefault}) {
+          id
+          address
+          amount
+          time
+          type
       }
     }`;
 
   const fetchData = useCallback(async () => {
     if (queryHistory) {
       const historyList = await queryGraph(queryHistory);
-
       return historyList;
     }
   }, [queryHistory]);

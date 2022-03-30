@@ -409,13 +409,13 @@ const Home = () => {
             {listHistory && listHistory.length ? (
               listHistory.map((h) => (
                 <ListGroup className="mt-3" horizontal key={h.id}>
-                  <ListGroupItem action>{h.eventName}</ListGroupItem>
+                  <ListGroupItem action>{h.type}</ListGroupItem>
                   <ListGroupItem action>
                     {formatNumber.format(formatEther(h.amount))}
                   </ListGroupItem>
                   <ListGroupItem action>
                     {moment
-                      .unix(Number(h.transactionTime))
+                      .unix(Number(h.time))
                       .format("kk:mm DD/MM/YYYY")}
                   </ListGroupItem>
                 </ListGroup>
